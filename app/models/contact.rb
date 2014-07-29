@@ -23,6 +23,16 @@ class Contact < ActiveRecord::Base
     source: :user
   )
 
+  has_many(
+    :group_memberships,
+    class_name: "GroupMembership",
+    foreign_key: :contact_id,
+    primary_key: :id,
+    dependent: :destroy
+  )
+
+  has_many :groups, through: :group_memberships, source: :group
+
   has_many :comments, as: :commentable, dependent: :destroy
 
 end

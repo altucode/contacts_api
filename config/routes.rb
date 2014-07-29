@@ -12,5 +12,9 @@ Rails.application.routes.draw do
 
   resources :comments, only: [:show, :update, :destroy]
 
-  resources :groups, only: [:show, :update, :destroy]
+  resources :groups, only: [:show, :update, :destroy] do
+    member { get 'contacts' }
+    member { post 'add_member'}
+  end
+
 end

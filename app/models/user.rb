@@ -31,6 +31,14 @@ class User < ActiveRecord::Base
     primary_key: :id
   )
 
+  has_many(
+    :groups,
+    class_name: "Group",
+    foreign_key: :owner_id,
+    primary_key: :id,
+    dependent: :destroy
+  )
+
   def all_contacts
     contacts + shared_contacts
   end
