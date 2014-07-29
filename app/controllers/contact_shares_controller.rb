@@ -23,7 +23,7 @@ class ContactSharesController < ApplicationController
   private
 
   def contact_share_params
-    params.require(:contact_share).permit(:user_id, :contact_id)
+    params.require(:contact_share).permit(:user_id, :contact_id, :favorite)
   end
 
 end

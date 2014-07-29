@@ -23,4 +23,6 @@ class Contact < ActiveRecord::Base
     source: :user
   )
 
+  has_many :comments, as: :commentable, dependent: :destroy
+
 end

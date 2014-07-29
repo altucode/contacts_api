@@ -22,6 +22,15 @@ class User < ActiveRecord::Base
     source: :contact
   )
 
+  has_many :comments, as: :commentable, dependent: :destroy
+
+  has_many(
+    :authored_comments,
+    class_name: "Comment",
+    foreign_key: :commenter_id,
+    primary_key: :id
+  )
+
   def all_contacts
     contacts + shared_contacts
   end
