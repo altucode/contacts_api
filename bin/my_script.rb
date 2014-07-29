@@ -11,16 +11,16 @@ url = Addressable::URI.new(
 puts RestClient.get(url)
 
 vals = {
-    var1: 'val1',
-    var2: 'val2',
-    'cat[1]' => 'jeff the cat'
+  user: {
+    email: "constance.io"
   }
+}
 
 url2 = Addressable::URI.new(
   scheme: 'http',
   host: 'localhost',
   port: 3000,
-  path: '/users.html'
+  path: '/users/7.html'
 ).to_s
 
-puts RestClient.post(url2, vals)
+puts RestClient.patch(url2, vals)
